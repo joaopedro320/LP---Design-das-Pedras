@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T9LPBTFR');</script>
+<!-- End Google Tag Manager -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recebemos seu pedido | Design das Pedras</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#151A21">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+.ok{min-height:100svh;display:grid;place-items:center;padding:40px var(--pad)}
+.ok__ficha{max-width:560px;width:100%;background:var(--ficha);color:var(--tinta);border-radius:4px;padding:clamp(28px,6vw,52px);display:grid;gap:18px}
+.ok__ficha img{width:120px;filter:brightness(.25)}
+.ok__ficha h1{font-size:clamp(1.8rem,5vw,2.6rem);font-weight:300;line-height:1.1}
+.ok__ficha p{color:#515866}
+.ok__regua{height:3px;background:rgba(27,32,41,.15);overflow:hidden}
+.ok__regua i{display:block;height:100%;background:var(--azul);transform-origin:left;animation:enche 2.6s linear forwards}
+@keyframes enche{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.ok__ficha a.volta{color:#515866;font-size:.9rem}
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T9LPBTFR"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<main class="ok">
+  <div class="ok__ficha">
+    <img src="assets/img/logo-design-das-pedras.png" alt="Design das Pedras Mármores e Granitos" width="640" height="336">
+    <h1>Pedido recebido</h1>
+    <p>Estamos abrindo o WhatsApp com a sua ficha escrita. É só tocar em enviar que a gente responde por lá.</p>
+    <div class="ok__regua" aria-hidden="true"><i></i></div>
+    <a class="botao botao--azul" id="ir-whats" href="https://wa.me/5521969079523?text=Ol%C3%A1%2C%20acabei%20de%20preencher%20o%20formul%C3%A1rio%20no%20site.%20Aguardo%20mais%20informa%C3%A7%C3%B5es.">Abrir o WhatsApp agora</a>
+    <a class="volta" href="./">Voltar para o site</a>
+  </div>
+</main>
+<script>
+(function(){
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({event:'lead_obrigado'});
+  var base = 'https://wa.me/5521969079523', url = null;
+  try { url = new URLSearchParams(location.search).get('wa'); } catch(e) {}
+  if (!url) { try { url = sessionStorage.getItem('dp_wa'); } catch(e) {} }
+  var btn = document.getElementById('ir-whats');
+  if (url && url.indexOf(base + '?text=') === 0) btn.href = url;
+  setTimeout(function(){ window.location.href = btn.href; }, 2600);
+})();
+</script>
+</body>
+</html>
