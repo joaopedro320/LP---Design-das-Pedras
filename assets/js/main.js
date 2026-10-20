@@ -53,6 +53,39 @@
     });
   }
 
+  /* projetos: foto ampliada ao clicar */
+  var fotos = Array.prototype.slice.call(document.querySelectorAll('.lav__f img'));
+  if (fotos.length) {
+    var caixa = document.createElement('div');
+    caixa.className = 'amplia'; caixa.hidden = true;
+    caixa.setAttribute('role', 'dialog'); caixa.setAttribute('aria-modal', 'true'); caixa.setAttribute('aria-label', 'Foto ampliada');
+    caixa.innerHTML = '<img alt=""><button type="button" class="amplia__fechar" aria-label="Fechar">×</button>' +
+      '<button type="button" class="amplia__seta amplia__seta--ant" aria-label="Foto anterior">‹</button>' +
+      '<button type="button" class="amplia__seta amplia__seta--prox" aria-label="Próxima foto">›</button>';
+    document.body.appendChild(caixa);
+    var cimg = caixa.querySelector('img'), atual = 0, origem = null;
+    function mostra(i) { atual = (i + fotos.length) % fotos.length; cimg.src = fotos[atual].src; cimg.alt = fotos[atual].alt; }
+    function abre(i) { origem = document.activeElement; mostra(i); caixa.hidden = false; document.body.classList.add('is-travado'); caixa.querySelector('.amplia__fechar').focus(); evento('foto_ampliada', { foto: fotos[atual].getAttribute('src') }); }
+    function fecha() { caixa.hidden = true; document.body.classList.remove('is-travado'); if (origem) origem.focus(); }
+    fotos.forEach(function (img, i) {
+      var fig = img.parentElement;
+      fig.tabIndex = 0; fig.setAttribute('role', 'button'); fig.setAttribute('aria-label', 'Ampliar: ' + img.alt);
+      fig.addEventListener('click', function () { abre(i); });
+      fig.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); abre(i); } });
+    });
+    caixa.addEventListener('click', function (e) {
+      if (e.target.closest('.amplia__seta--ant')) mostra(atual - 1);
+      else if (e.target.closest('.amplia__seta--prox')) mostra(atual + 1);
+      else if (e.target !== cimg) fecha();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (caixa.hidden) return;
+      if (e.key === 'Escape') fecha();
+      else if (e.key === 'ArrowLeft') mostra(atual - 1);
+      else if (e.key === 'ArrowRight') mostra(atual + 1);
+    });
+  }
+
   /* eventos de clique */
   document.querySelectorAll('.js-wa').forEach(function (a) { a.addEventListener('click', function () { evento('clique_whatsapp', { origem: a.dataset.origem || 'link' }); }); });
   document.querySelectorAll('.js-cta').forEach(function (a) { a.addEventListener('click', function () { evento('clique_cta_orcamento', { origem: a.dataset.origem || 'link' }); }); });

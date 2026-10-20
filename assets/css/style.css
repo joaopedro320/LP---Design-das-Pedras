@@ -114,12 +114,23 @@ p{margin:0}
 .lav__fixo h2{font-size:clamp(2.4rem,6vw,4.6rem)}
 .lav__fixo p{color:var(--cinza);max-width:40ch}
 .lav__fotos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.lav__f{margin:0;overflow:hidden;border-radius:4px;aspect-ratio:4/5}
+.lav__f{margin:0;overflow:hidden;border-radius:4px;aspect-ratio:4/5;cursor:zoom-in}
 .lav__f img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
 .lav__f:hover img{transform:scale(1.04)}
 .lav__f--alta{grid-row:span 2;aspect-ratio:auto}
 .lav__f--larga{grid-column:span 2;aspect-ratio:16/9}
 .lav__fotos .lav__f:nth-child(3){transform:translateY(0)}
+.amplia{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:clamp(16px,4vw,56px);background:rgba(21,26,33,.94);cursor:zoom-out;animation:amplia .3s var(--ease)}
+.amplia[hidden]{display:none}
+.amplia img{max-width:100%;max-height:100%;object-fit:contain;border-radius:4px;cursor:default}
+.amplia button{position:absolute;display:grid;place-items:center;width:48px;height:48px;border:1px solid var(--linha);border-radius:50%;background:var(--placa);color:var(--quartzito);font:300 1.8rem/1 var(--f-t);cursor:pointer}
+.amplia button:hover{border-color:var(--cota)}
+.amplia__fechar{top:16px;right:16px}
+.amplia__seta{top:50%;transform:translateY(-50%)}
+.amplia__seta--ant{left:16px}
+.amplia__seta--prox{right:16px}
+.is-travado{overflow:hidden}
+@keyframes amplia{from{opacity:0}}
 @media (max-width:860px){
   .lav{grid-template-columns:1fr}
   .lav__fixo{position:static}
