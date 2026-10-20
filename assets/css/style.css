@@ -56,37 +56,13 @@ p{margin:0}
 .abre{max-width:calc(var(--larg) + var(--pad)*2);margin:0 auto;padding:clamp(28px,5vw,64px) var(--pad) clamp(56px,8vw,110px)}
 .abre__titulo{font-size:clamp(2.2rem,6.4vw,5.4rem);line-height:1.02;font-weight:300;letter-spacing:-.035em;max-width:19ch}
 .abre__grade{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);margin-top:clamp(28px,4vw,52px);align-items:end}
-.planta{margin:0;position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:4px;background:var(--placa)}
+.planta{margin:0;position:relative;aspect-ratio:5/4;overflow:hidden;border-radius:4px;background:var(--placa)}
 .planta>img{width:100%;height:100%;object-fit:cover}
-.cotas{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-.cota path{fill:none;stroke:var(--cota);stroke-width:2;vector-effect:non-scaling-stroke}
-.cota .cota__ext{stroke-width:1;stroke-dasharray:4 5;opacity:.85}
-.cota .cota__linha,.cota .cota__seta{stroke-dasharray:1200;stroke-dashoffset:1200;animation:traca 1.4s var(--ease) forwards}
-.cota--1 .cota__linha,.cota--1 .cota__seta{animation-delay:.5s}
-.cota--2 .cota__linha,.cota--2 .cota__seta{animation-delay:1s}
-.cota--3 .cota__linha{animation-delay:1.5s}
-.cota .cota__ext{opacity:0;animation:surge .6s .35s forwards}
-.cota--2 .cota__ext{animation-delay:.85s}
-.cota--3 .cota__ext{animation-delay:1.4s}
-@keyframes traca{to{stroke-dashoffset:0}}
-@keyframes surge{to{opacity:.85}}
-.etiqueta{position:absolute;font:500 .78rem/1 var(--f-c);color:var(--noite);background:var(--cota);padding:6px 9px;border-radius:2px;white-space:nowrap;opacity:0;transform:translateY(6px);animation:etq .5s var(--ease) forwards}
-.etiqueta--1{left:42%;top:37%;animation-delay:1.3s}
-.etiqueta--2{right:12.5%;top:70%;animation-delay:1.8s;transform-origin:right}
-.etiqueta--3{left:27%;top:26.5%;animation-delay:2.1s}
-@keyframes etq{to{opacity:1;transform:none}}
 .abre__lado{display:grid;gap:26px;padding-bottom:4px}
 .abre__sub{font-size:1.06rem;color:var(--quartzito);opacity:.9}
 .abre__acoes{display:grid;gap:10px}
-.abre__fatos{margin:0;display:grid;gap:0;border-top:1px solid var(--linha)}
-.abre__fatos div{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:13px 0;border-bottom:1px solid var(--linha)}
-.abre__fatos dt{font-size:.9rem;color:var(--cinza)}
-.abre__fatos dd{margin:0;font:500 1rem/1.2 var(--f-t);display:flex;align-items:center;gap:8px}
-.estrelas{display:inline-block;width:70px;height:12px;background:#F2B544;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 70 12'%3E%3Cg%3E%3Cpath id='s' d='M6 0l1.8 3.9 4.2.4-3.2 2.8 1 4.1L6 9.1 2.2 11.2l1-4.1L0 4.3l4.2-.4z'/%3E%3Cuse href='%23s' x='14.5'/%3E%3Cuse href='%23s' x='29'/%3E%3Cuse href='%23s' x='43.5'/%3E%3Cuse href='%23s' x='58'/%3E%3C/g%3E%3C/svg%3E") no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 70 12'%3E%3Cg%3E%3Cpath id='s' d='M6 0l1.8 3.9 4.2.4-3.2 2.8 1 4.1L6 9.1 2.2 11.2l1-4.1L0 4.3l4.2-.4z'/%3E%3Cuse href='%23s' x='14.5'/%3E%3Cuse href='%23s' x='29'/%3E%3Cuse href='%23s' x='43.5'/%3E%3Cuse href='%23s' x='58'/%3E%3C/g%3E%3C/svg%3E") no-repeat}
 @media (max-width:900px){
   .abre__grade{grid-template-columns:1fr}
-  .etiqueta{font-size:.66rem;padding:4px 6px}
-  .etiqueta--2{right:11%}
 }
 
 /* índice de peças */
@@ -132,18 +108,29 @@ p{margin:0}
   .detalhe__zooms li{grid-template-columns:120px minmax(0,1fr);gap:18px}
 }
 
-/* lavatórios */
+/* obras e projetos */
 .lav{max-width:calc(var(--larg) + var(--pad)*2);margin:0 auto;padding:clamp(64px,9vw,130px) var(--pad);display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,5vw,72px);align-items:start}
 .lav__fixo{position:sticky;top:110px;display:grid;gap:18px;justify-items:start}
 .lav__fixo h2{font-size:clamp(2.4rem,6vw,4.6rem)}
 .lav__fixo p{color:var(--cinza);max-width:40ch}
 .lav__fotos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.lav__f{margin:0;overflow:hidden;border-radius:4px;aspect-ratio:4/5}
+.lav__f{margin:0;overflow:hidden;border-radius:4px;aspect-ratio:4/5;cursor:zoom-in}
 .lav__f img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
 .lav__f:hover img{transform:scale(1.04)}
 .lav__f--alta{grid-row:span 2;aspect-ratio:auto}
 .lav__f--larga{grid-column:span 2;aspect-ratio:16/9}
 .lav__fotos .lav__f:nth-child(3){transform:translateY(0)}
+.amplia{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:clamp(16px,4vw,56px);background:rgba(21,26,33,.94);cursor:zoom-out;animation:amplia .3s var(--ease)}
+.amplia[hidden]{display:none}
+.amplia img{max-width:100%;max-height:100%;object-fit:contain;border-radius:4px;cursor:default}
+.amplia button{position:absolute;display:grid;place-items:center;width:48px;height:48px;border:1px solid var(--linha);border-radius:50%;background:var(--placa);color:var(--quartzito);font:300 1.8rem/1 var(--f-t);cursor:pointer}
+.amplia button:hover{border-color:var(--cota)}
+.amplia__fechar{top:16px;right:16px}
+.amplia__seta{top:50%;transform:translateY(-50%)}
+.amplia__seta--ant{left:16px}
+.amplia__seta--prox{right:16px}
+.is-travado{overflow:hidden}
+@keyframes amplia{from{opacity:0}}
 @media (max-width:860px){
   .lav{grid-template-columns:1fr}
   .lav__fixo{position:static}
@@ -152,7 +139,7 @@ p{margin:0}
 
 /* degraus */
 .degraus{position:relative;min-height:clamp(380px,60vw,640px);display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
-.degraus__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;z-index:-2}
+.degraus__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 55%;z-index:-2}
 .degraus::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(21,26,33,.88) 0%,rgba(21,26,33,.45) 50%,rgba(21,26,33,.05) 100%);z-index:-1}
 .degraus__txt{max-width:calc(var(--larg) + var(--pad)*2);width:100%;margin:0 auto;padding:clamp(36px,6vw,80px) var(--pad);display:grid;gap:12px}
 .degraus__txt h2{max-width:12ch}
