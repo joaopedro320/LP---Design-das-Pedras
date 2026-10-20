@@ -88,7 +88,7 @@ Fotos todas do cliente (pasta do Drive + Instagram, só as sem marca d'água).
 ## Checklist de SEO
 
 - [x] Title e meta description com "marmoraria" + Seropédica
-- [x] H1 com "Marmoraria" e "perto de você"
+- [x] H1 com "Marmoraria" + Seropédica (posicionamento alto padrão)
 - [x] Canonical (provisório)
 - [x] Open Graph completo + imagem 1200x630
 - [x] Twitter Card
